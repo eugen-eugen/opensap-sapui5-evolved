@@ -14,7 +14,6 @@
 			"version": "1.40.12"
 		}
 	},
-
 	"sap.ui": {
 		"technology": "UI5",
 		"icons": {
@@ -31,7 +30,6 @@
 			"phone": true
 		}
 	},
-
 	"sap.ui5": {
 		"flexEnabled": false,
 		"rootView": {
@@ -43,9 +41,9 @@
 		"dependencies": {
 			"minUI5Version": "1.60.1",
 			"libs": {
-				"sap.ui.layout": {},
+				"sap.m": {},
 				"sap.ui.core": {},
-				"sap.m": {}
+				"sap.ui.layout": {}
 			}
 		},
 		"contentDensities": {
@@ -58,6 +56,12 @@
 				"settings": {
 					"bundleName": "moldsawski.movie.i18n.i18n"
 				}
+			},
+			"movies": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"uri": "model/Movies.json",
+				"preload": false
 			}
 		},
 		"resources": {

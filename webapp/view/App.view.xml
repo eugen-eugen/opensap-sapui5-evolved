@@ -1,9 +1,50 @@
-<mvc:View controllerName="moldsawski.movie.controller.App" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
-	<Shell id="shell">
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="moldsawski.movie.controller.App" displayBlock="true">
+	<Shell xmlns="sap.m" id="shell">
 		<App id="app">
 			<pages>
-				<Page id="page" title="{i18n>title}">
-					<content></content>
+				<Page title="{i18n>title}" id="page">
+					<content>
+						<Image id="image0" src="images/MoviesHeader.png" alt="Movie" height="140px" tooltip="Movie Banner" width="100%"
+						       visible="{=!${device>/system/phone}}"
+						/>
+						<f:SimpleForm xmlns:f="sap.ui.layout.form" xmlns:sap.ui.core="sap.ui.core"  editable="true" id="form0"
+							columnsM="2" columnsL="3" columnsXL="3" title="{i18n>title}">
+							<f:content>
+								<sap.ui.core:Title text="Find Movies" id="title0"/>
+								<Label text="City" width="100%" labelFor="city"/>
+								<SearchField xmlns="sap.m" placeholder="Enter City" id="city"/>
+								<Label text="Genre" width="100%" labelFor="genre"/>
+								<Select xmlns="sap.m" id="genre" width="100%">
+									<items>
+										<sap.ui.core:ListItem text="All" icon="sap-icon://video" key=""/>
+										<sap.ui.core:ListItem text="Action" icon="sap-icon://physical-activity" key="Action"/>
+										<sap.ui.core:ListItem text="Horror" icon="sap-icon://electrocardiogram" key="Horror"/>
+										<sap.ui.core:ListItem text="Science Fiction" icon="sap-icon://paper-plane" key="Science Fiction"/>
+									</items>
+								</Select>
+								<Label/>
+								<Button xmlns="sap.m" text="Find Movie" id="button1" type="Emphasized" class="sapUiSmallMarginTop" press="onPress"/>
+							</f:content>
+						</f:SimpleForm>
+						<PlanningCalendar id="calendar" appointmentsVisualization="Filled" showWeekNumbers="true" startDate="{path: 'movies>/initDate', formatter:'.formatFunc'}"
+							rows="{movies>/movies}">
+							<toolbarContent>
+								<Title text="{i18n>calendarTitle}" titelStyle="H4"/>
+							</toolbarContent>
+							<rows>
+								<PlanningCalendarRow title="{movies>name}" text="{movies>genre}" appointments="{path: 'movies>appointments', templateShareable: 'true'}">
+									<appointments>
+										<unified:CalendarAppointment xmlns:unified="sap.ui.unified" startDate="{path: 'movies>startDate',formatter:'.formatFunc'}"
+											endDate="{path: 'movies>endDate',formatter:'.formatFunc'}"
+											title="{movies>info}"
+											text="{movies>cinemaName}"
+											type="{movies>type}"
+											info="{movies>info}"/>
+									</appointments>
+								</PlanningCalendarRow>
+							</rows>
+						</PlanningCalendar>
+					</content>
 				</Page>
 			</pages>
 		</App>
