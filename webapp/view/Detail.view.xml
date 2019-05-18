@@ -1,0 +1,27 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml"
+	controllerName="moldsawski.movie.controller.Detail">
+	<Page
+		title="{movies>cinemaName} - {path: 'movies>startDate', 
+		                              type: 'sap.ui.model.type.Date', 
+		                              formatOptions: {source: { pattern: 'MM/dd/yyyy/hh:mm:ss'}, relative: true, relativeScale: 'auto' } }"
+		showNavButton="true" class="sapUiResponsiveContentPadding" navButtonPress="onNavBack">
+		<content>
+			<FlexBox width="100%" id="box0">
+				<sap.ui.layout:VerticalLayout xmlns:sap.ui.layout="sap.ui.layout" width="100%" id="layout0"
+					class="sapUiMediumMarginEnd sapUiSmallMarginBottom">
+					<core:Icon src="{movies>icon}" size="3em" class="sapUiMediumMarginBottom" id="icon0"/>
+					<Label text="{i18n>cinemaAddress}" design="Bold"/>
+					<Text text="{movies>cinemaAddress}" class="sapUiMediumMarginBottom"/>
+					<Label text="{i18n>special}" design="Bold"/>
+					<Text text="{movies>special}" class="sapUiMediumMarginBottom"/>
+					<Label text="{i18n>seats}" design="Bold"/>
+					<Text text="{movies>seats}" class="sapUiMediumMarginBottom"/>
+					<Label text="{i18n>technicalDetails}" design="Bold"/>
+					<Text text="{movies>technicalDetails}" width="400px"/>
+				</sap.ui.layout:VerticalLayout>
+				<Image width="100%" src="{movies>pic}"/>
+				<items/>
+			</FlexBox>
+		</content>
+	</Page>
+</mvc:View>

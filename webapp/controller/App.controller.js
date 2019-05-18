@@ -2,8 +2,10 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
     "sap/base/Log", 
     "../model/formatter",
     "sap/ui/model/Filter",
-    "sap/ui/model/FilterOperator"
-    ], function (Controller, Log, Formatter, Filter, FilterOperator) {
+    "sap/ui/model/FilterOperator",
+    "sap/ui/core/UIComponent",
+    "sap/m/Toolbar"
+    ], function (Controller, Log, Formatter, Filter, FilterOperator, UIComponent, Toolbar) {
 	"use strict";
 	return Controller.extend("moldsawski.movie.controller.App", {
 		formatFunc: Formatter.formatDate,
@@ -30,6 +32,16 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 		      var oAppointmentsBinding = oItem.getBinding("appointments");
 		      oAppointmentsBinding.filter(oFilterCity);
 		   });
+		},
+		onAppointmentSelect: function(oAppointment){
+			var bBindingContext=oAppointment.getBindingContext("movies");
+			var sPath=bBindingContext.getPath();
+			var aParameters= sPath.split("/");
+			UIComponent.getRouterFor(this).navTo("Detail", {
+					movieId: aParameters[2], 
+				    appointmentId: aParameters[4]
+				}
+			);
 		}
 	});
 });

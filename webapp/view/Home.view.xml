@@ -1,7 +1,7 @@
-<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="moldsawski.movie.controller.App" displayBlock="true">
-	<Shell xmlns="sap.m" id="shell">
-		<App id="app">
-			<pages>
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="moldsawski.movie.controller.App"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
 				<Page title="{i18n>title}" id="page">
 					<content>
 						<Image id="image0" src="images/MoviesHeader.png" alt="Movie" height="140px" tooltip="Movie Banner" width="100%" visible="{=!${device>/system/phone}}"/>
@@ -38,7 +38,7 @@
 						<Toolbar width="100%" id="toolbar1"/>
 					</content>
 				</Page>
-			</pages>
-		</App>
-	</Shell>
+
+		</pages>
+	</App>
 </mvc:View>

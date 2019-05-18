@@ -77,20 +77,40 @@
 				"viewPath": "moldsawski.movie.view",
 				"controlAggregation": "pages",
 				"controlId": "app",
-				"clearControlAggregation": false
+				"clearControlAggregation": false,
+				"bypassed": {
+					"target": ["NotFound"]
+				}
 			},
 			"routes": [{
-				"name": "RouteApp",
-				"pattern": "RouteApp",
-				"target": ["TargetApp"]
+				"name": "Detail",
+				"pattern": "movies/{movieId}/appointments/{appointmentId}",
+				"titleTarget": "Detail",
+				"greedy": false,
+				"target": ["Detail"]
+			}, {
+				"name": "Home",
+				"pattern": "",
+				"titleTarget": "",
+				"greedy": false,
+				"target": ["Home"]
+			}, {
+				"name": "Home",
+				"pattern": "Home",
+				"target": ["Home"]
 			}],
 			"targets": {
-				"TargetApp": {
+				"Detail": {
 					"viewType": "XML",
-					"transition": "slide",
-					"clearControlAggregation": false,
-					"viewId": "App",
-					"viewName": "App"
+					"viewName": "Detail"
+				},
+				"Home": {
+					"viewType": "XML",
+					"viewName": "Home"
+				},
+				"NotFound": {
+					"viewType": "XML",
+					"viewName": "NotFound"
 				}
 			}
 		}
