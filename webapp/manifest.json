@@ -83,17 +83,17 @@
 				}
 			},
 			"routes": [{
-				"name": "Detail",
-				"pattern": "movies/{movieId}/appointments/{appointmentId}",
-				"titleTarget": "Detail",
-				"greedy": false,
-				"target": ["Detail"]
-			}, {
 				"name": "Home",
 				"pattern": "",
 				"titleTarget": "",
 				"greedy": false,
 				"target": ["Home"]
+			}, {
+				"name": "Detail",
+				"pattern": "movies/{movieId}/appointments/{appointmentId}",
+				"titleTarget": "Detail",
+				"greedy": false,
+				"target": ["Detail"]
 			}, {
 				"name": "Home",
 				"pattern": "Home",
